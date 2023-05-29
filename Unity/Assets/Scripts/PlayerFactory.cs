@@ -6,7 +6,7 @@ public class PlayerFactory
 
     public Player CreateNewPlayer()
     {
-        var playerId = _lastId++;
+        var playerId = _lastId+=1;
         var playerObject = new GameObject($"Player{playerId}");
         var player = playerObject.AddComponent<Player>();
         player.Id = playerId;
