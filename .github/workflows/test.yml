@@ -1,0 +1,12 @@
+name: Run Tests
+run-name: ${{ github.actor }} is running CI tests 🚀
+on:
+  workflow_dispatch:
+
+jobs:
+  printLog:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: print log
+      run: echo "Hello!"
