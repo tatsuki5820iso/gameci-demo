@@ -1,3 +1,5 @@
+using System;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using Random = System.Random;
 
@@ -16,5 +18,10 @@ public class TestController : MonoBehaviour
         }
 
         print($"Created {playerCount} players!");
+    }
+
+    async UniTask DoFoo()
+    {
+        await UniTask.Delay(TimeSpan.FromSeconds(10));
     }
 }
