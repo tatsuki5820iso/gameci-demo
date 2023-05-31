@@ -47,7 +47,7 @@ jobs:
           unityVersion: ${{ matrix.unityVersion }}
           targetPlatform: ${{ matrix.targetPlatform }}
           gitPrivateToken: ${{ secrets.GITHUB_TOKEN }}
-          githubChecks: true
+          # githubChecks: true
           # container size
           containerCpu: 4096
           containerMemory: 8192
