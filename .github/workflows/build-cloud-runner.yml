@@ -48,5 +48,8 @@ jobs:
           targetPlatform: ${{ matrix.targetPlatform }}
           gitPrivateToken: ${{ secrets.GITHUB_TOKEN }}
           githubChecks: true
+          # container size
+          containerCpu: 4096
+          containerMemory: 8192
           # You may want to export your builds somewhere external so you can access it:
           containerHookFiles: aws-s3-upload-build
