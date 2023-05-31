@@ -40,7 +40,7 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           providerStrategy: aws
-          awsStackName: tatsuki5820iso-test-game-ci-20230531
+          awsStackName: tatsuki5820iso-test-game-ci-20230601-4096-24576
           cacheKey: Library-${{ matrix.projectPath }}-${{ matrix.targetPlatform }}-${{ steps.short-sha.outputs.sha }}
           versioning: Tag
           projectPath: ${{ matrix.projectPath }}
@@ -49,8 +49,8 @@ jobs:
           gitPrivateToken: ${{ secrets.GITHUB_TOKEN }}
           # githubChecks: true
           # container size
-          containerCpu: 8192
-          containerMemory: 16384
+          containerCpu: 4096
+          containerMemory: 24576
           # You may want to export your builds somewhere external so you can access it:
           containerHookFiles: aws-s3-upload-build
 
