@@ -1,5 +1,5 @@
 name: Run Tests
-run-name: ${{ github.actor }} is running CI tests 🚀
+run-name: ${{ github.actor }} is running CI tests via CloudRunner 🚀
 on:
   workflow_dispatch:
 
@@ -35,20 +35,21 @@ jobs:
             Library-${{ matrix.projectPath }}-
             Library-
 
-      # Run tests
-      - uses: game-ci/unity-test-runner@v2
-        id: testRunner
-        env:
-          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
         with:
-          projectPath: ${{ matrix.projectPath }}
-          testMode: ${{ matrix.testMode }}
-          artifactsPath: ${{ matrix.testMode }}-artifacts
-          unityVersion: ${{ matrix.unityVersion }}
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-1
 
-      - uses: actions/upload-artifact@v2
-        if: always()
+      - uses: game-ci/unity-builder@cloud-runner-develop
+        id: aws-fargate-unity-build
         with:
-          name: Test results (all modes)
-          path: ${{ steps.testRunner.outputs.artifactsPath }}
+          providerStrategy: aws
+          versioning: Tag
+          projectPath: ${{ matrix.projectPath }}
+          unityVersion: ${{ matrix.unityVersion }}
+          targetPlatform: ${{ matrix.targetPlatform }}
+          gitPrivateToken: ${{ secrets.GITHUB_TOKEN }}
+          # You may want to export your builds somewhere external so you can access it:
+          containerHookFiles: aws-s3-upload-build
