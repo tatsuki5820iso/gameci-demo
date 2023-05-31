@@ -47,6 +47,7 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           providerStrategy: aws
+          awsStackName: tatsuki5820iso-test-game-ci-20230531
           versioning: Tag
           projectPath: ${{ matrix.projectPath }}
           unityVersion: ${{ matrix.unityVersion }}
