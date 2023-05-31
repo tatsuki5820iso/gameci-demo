@@ -47,5 +47,6 @@ jobs:
           unityVersion: ${{ matrix.unityVersion }}
           targetPlatform: ${{ matrix.targetPlatform }}
           gitPrivateToken: ${{ secrets.GITHUB_TOKEN }}
+          githubChecks: true
           # You may want to export your builds somewhere external so you can access it:
           containerHookFiles: aws-s3-upload-build
