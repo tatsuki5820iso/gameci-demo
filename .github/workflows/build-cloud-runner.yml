@@ -13,9 +13,6 @@ jobs:
           - Unity
         unityVersion:
           - 2021.3.22f1
-        testMode:
-          - playmode
-          - editmode
         targetPlatform:
           - Android
 
@@ -44,6 +41,10 @@ jobs:
 
       - uses: game-ci/unity-builder@cloud-runner-develop
         id: aws-fargate-unity-build
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           providerStrategy: aws
           versioning: Tag
