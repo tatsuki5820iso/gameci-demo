@@ -14,6 +14,8 @@ public class TestController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _text.text = $"Version: {Application.version}";
+　
         var playerCount = new Random().Next(1, 10);
 
         for (var i = 0; i < playerCount; i++)
@@ -22,8 +24,6 @@ public class TestController : MonoBehaviour
         }
 
         print($"Created {playerCount} players!");
-
-        _text.text = $"Version: {Application.version}";
     }
 
     async UniTask DoFoo()
