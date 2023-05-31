@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace Editor.Tests
+namespace Tests.Editor
 {
     public class PlayerFactoryTest
     {
