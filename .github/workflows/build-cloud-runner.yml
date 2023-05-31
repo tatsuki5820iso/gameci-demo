@@ -49,8 +49,8 @@ jobs:
           gitPrivateToken: ${{ secrets.GITHUB_TOKEN }}
           # githubChecks: true
           # container size
-          containerCpu: 4096
-          containerMemory: 8192
+          containerCpu: 8192
+          containerMemory: 16384
           # You may want to export your builds somewhere external so you can access it:
           containerHookFiles: aws-s3-upload-build
 
