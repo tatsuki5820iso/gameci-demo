@@ -40,7 +40,7 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           providerStrategy: aws
-          awsStackName: tatsuki5820iso-test-game-ci-20230601-4096-24576
+          awsStackName: tatsuki5820iso-test-game-ci-4-24
           cacheKey: Library-${{ matrix.projectPath }}-${{ matrix.targetPlatform }}-${{ steps.short-sha.outputs.sha }}
           versioning: Tag
           projectPath: ${{ matrix.projectPath }}
