@@ -41,7 +41,7 @@ jobs:
         with:
           providerStrategy: aws
           awsStackName: tatsuki5820iso-test-game-ci-20230531
-          cacheKey: Library-${{ matrix.projectPath }}-${{ matrix.targetPlatform }}-${{ steps.short-sha.outputs.sha }}
+          cacheKey: Library-${{ matrix.projectPath }}-${{ matrix.targetPlatform }}-${{ matrix.unityVersion }}-${{ steps.short-sha.outputs.sha }}
           versioning: Tag
           projectPath: ${{ matrix.projectPath }}
           unityVersion: ${{ matrix.unityVersion }}
