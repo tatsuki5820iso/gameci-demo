@@ -1,5 +1,5 @@
 name: Build via Cloud Runner
-run-name: ${{ github.actor }} is running CI tests via CloudRunner 🚀
+run-name: ${{ github.actor }} is running CI tests via CloudRunner test2 🚀
 on:
   workflow_dispatch:
 
